@@ -1,0 +1,1 @@
+[Dynamic Remotes, Webpack Module Federation](https://h3manth.com/posts/dynamic-remotes-webpack-module-federation/)
