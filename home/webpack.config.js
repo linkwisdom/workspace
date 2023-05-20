@@ -29,9 +29,9 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "home",
       filename: "remoteEntry.js",
-      // remotes: {
-      // 	comic: `comic@${getRemoteEntryUrl(1338)}`,
-      // },
+      remotes: {
+      	comic: `comic@${getRemoteEntryUrl(1338)}`,
+      },
       shared: [
         {
           react: { singleton: true, eager: true },
@@ -48,6 +48,7 @@ module.exports = {
 console.log(getRemoteEntryUrl(1337));
 function getRemoteEntryUrl(port) {
   const { CODESANDBOX_SSE, HOSTNAME = "" } = process.env;
+  console.log(process.env);
 
   // Check if the example is running on codesandbox
   // https://codesandbox.io/docs/environment

@@ -5,11 +5,23 @@ import { Line } from '@antv/g2plot';
 const { Option } = Select;
 
 const cities = [
-  { name: '北京', data: [{ time: '00:00', max: 28, min: 18 }, { time: '01:00', max: 27, min: 17 }, ...] },
-  { name: '上海', data: [{ time: '00:00', max: 30, min: 22 }, { time: '01:00', max: 29, min: 21 }, ...] },
-  { name: '广州', data: [{ time: '00:00', max: 32, min: 24 }, { time: '01:00', max: 31, min: 23 }, ...] },
-  { name: '深圳', data: [{ time: '00:00', max: 33, min: 25 }, { time: '01:00', max: 32, min: 24 }, ...] },
+  { name: '北京', data: [{ time: '00:00', max: 28, min: 18 }, { time: '01:00', max: 27, min: 17 }] },
+  { name: '上海', data: [{ time: '00:00', max: 30, min: 22 }, { time: '01:00', max: 29, min: 21 }] },
+  { name: '广州', data: [{ time: '00:00', max: 32, min: 24 }, { time: '01:00', max: 31, min: 23 }] },
+  { name: '深圳', data: [{ time: '00:00', max: 33, min: 25 }, { time: '01:00', max: 32, min: 24 }] },
 ];
+
+const rand = (s) => {
+  Math.round(Math.random() * s);
+}
+
+
+cities.forEach(c => {
+  for (let i = 0; i < 23; i++) {
+    const min = rand(20) + 5;
+    c.data[i] = { time: `${i}:00`, max: min + rand(10), min: min };
+  }
+})
 
 const WeatherChart = () => {
   const [selectedCities, setSelectedCities] = useState([]);

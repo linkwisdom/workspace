@@ -40,6 +40,19 @@ module.exports = {
 				},
 			],
 		}),
+		new ModuleFederationPlugin({
+			name: "charts",
+			filename: "charts.js",
+			exposes: {
+				"./weather": "./weather.jsx",
+			},
+			shared: [
+				{
+					react: { singleton: true, eager: true },
+					"react-dom": { singleton: true, eager: true },
+				},
+			],
+		}),
 		new HtmlWebpackPlugin({
 			template: "./index.html",
 		}),

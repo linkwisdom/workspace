@@ -61,7 +61,6 @@ function System(props) {
   const { ready, failed } = useDynamicScript({
     url: props.system && props.system.url
   });
-  debugger;
 
   if (!props.system) {
     return <h2>Not system specified</h2>;
@@ -92,9 +91,9 @@ const App = () => {
   function setComicApp() {
     debugger;
     setSystem({
-      url: "http://localhost:1338/remoteEntry.js",
-      scope: "comic",
-      module: "./XKCD"
+      url: "http://localhost:1338/charts.js",
+      scope: "charts",
+      module: "./weather"
     });
   }
   const [fetchComic, setFetchComic] = useState(0);
@@ -115,6 +114,7 @@ const App = () => {
           <div>
             {" "}
             <System system={system} />
+            <city-charts>城市图标</city-charts>
             {/* <XKCD shouldFetch={fetchComic} /> */}
           </div>
         </Suspense>
